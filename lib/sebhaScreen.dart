@@ -26,7 +26,20 @@ class _SebhaState extends State<Sebha> {
       padding: const EdgeInsetsDirectional.only(top: 50, start: 90, end: 90),
       child: Column(
         children: [
-          Image.asset("assets/images/sebha.png"),
+          InkWell(
+              onTap: () {
+                if (counter >= 33 && index < azkar.length - 1) {
+                  counter = 0;
+                  index++;
+                } else if (counter >= 33 && index >= azkar.length - 1) {
+                  counter = 0;
+                  index = 0;
+                } else {
+                  counter++;
+                }
+                setState(() {});
+              },
+              child: Image.asset("assets/images/sebha.png")),
           SizedBox(
             height: 32,
           ),
@@ -38,21 +51,12 @@ class _SebhaState extends State<Sebha> {
             height: 34,
           ),
           Container(
+            decoration: BoxDecoration(
+                color: Color(0XFFC9B396),
+                borderRadius: BorderRadius.circular(23)),
             width: 69,
             height: 81,
-            child: ElevatedButton(
-              onPressed: () {
-                if (counter >= 33 && index < azkar.length-1) {
-                  counter = 0;
-                  index++;
-                } else if (counter >= 33 && index >= azkar.length-1) {
-                  counter = 0;
-                  index = 0;
-                } else {
-                  counter++;
-                }
-                setState(() {});
-              },
+            child: Center(
               child: Text(
                 "$counter",
                 style: TextStyle(
@@ -60,10 +64,6 @@ class _SebhaState extends State<Sebha> {
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0XFFC9B396),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(23))),
             ),
           ),
           SizedBox(

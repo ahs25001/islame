@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:islame2/myThame.dart';
 
-class Hadeth extends StatelessWidget {
-  static const String routName='hadeth';
-  const Hadeth({super.key});
+import 'hadethDitales.dart';
+import 'hadethModel.dart';
+
+class Hadeth extends StatefulWidget {
+  static const String routName = 'hadeth';
+
+  @override
+  State<Hadeth> createState() => _HadethState();
+}
+
+class _HadethState extends State<Hadeth> {
+  List<HadethModel> ahadeth = [];
 
   @override
   Widget build(BuildContext context) {
+    if (ahadeth.isEmpty) {
+      lodeAhadeth();
+    }
     return Padding(
       padding: const EdgeInsets.only(top: 33.0),
       child: Column(
@@ -16,16 +29,48 @@ class Hadeth extends StatelessWidget {
             color: MyTheme.primary,
             thickness: 3,
           ),
-          Text("Ahadeth",style: Theme.of(context).textTheme.bodyMedium),
+          Text("Ahadeth", style: Theme.of(context).textTheme.bodyMedium),
           Divider(
             color: MyTheme.primary,
             thickness: 3,
           ),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(context, HadethDitales.routName,arguments: ahadeth[index]);
+                    },
+                    child: Text(
+                      ahadeth[index].title,
+                      style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return Divider(
+                    thickness: 3,
+                    endIndent: 40,
+                    indent: 40,
+                  );
+                },
+                itemCount: ahadeth.length),
+          )
         ],
       ),
     );
   }
-  addAhadeth(){
 
+  lodeAhadeth() async {
+    String hadethFile = await rootBundle.loadString("assets/files/ahadeth.txt");
+    List<String> hadeth = hadethFile.split("#");
+    for (int i = 0; i < hadeth.length; i++) {
+      List<String> hadethLiens = hadeth[i].trim().split("\n");
+      String title = hadethLiens[0];
+      hadethLiens.removeAt(0);
+      ahadeth.add(HadethModel(title: title, body: hadethLiens));
+      setState(() {});
+    }
   }
 }

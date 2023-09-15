@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+import 'package:islame2/hadethModel.dart';
+
+class HadethDitales extends StatelessWidget {
+  static const String routName="hadethDitales";
+  const HadethDitales({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var args=ModalRoute.of(context)!.settings.arguments as HadethModel;
+    return Card(
+      child: Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/background.png",),
+                fit: BoxFit.fill)),
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              args.title,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
+          body: Card(
+            shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
+            elevation: 3,
+            margin: EdgeInsets.all(7),
+            child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Center(child: Text(args.body[index],));
+                },
+                itemCount: args.body.length),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islame2/hadethDitales.dart';
 import 'package:islame2/hadethScreen.dart';
 import 'package:islame2/myThame.dart';
 import 'package:islame2/quranScreen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Home.routName: (context) => Home(),
        SouraDitalse.routName:(context) => SouraDitalse(),
+        HadethDitales.routName:(context) => HadethDitales(),
       },
       initialRoute: Home.routName,
       theme: MyTheme.light,

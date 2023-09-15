@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   static Color blackColor = Color(0XFF242424);
+  static Color primary =  Color(0XFFB7935F);
   static ThemeData light = ThemeData(
     iconTheme: IconThemeData(color: Color(0XFFB7935F)),
     bottomNavigationBarTheme:BottomNavigationBarThemeData(

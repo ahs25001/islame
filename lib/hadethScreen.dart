@@ -5,6 +5,7 @@ import 'package:islame2/myThame.dart';
 import 'hadethDitales.dart';
 import 'hadethModel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Hadeth extends StatefulWidget {
   static const String routName = 'hadeth';
 
@@ -29,7 +30,8 @@ class _HadethState extends State<Hadeth> {
             color: MyTheme.primary,
             thickness: 3,
           ),
-          Text(AppLocalizations.of(context)!.ahadeth, style: Theme.of(context).textTheme.bodyMedium),
+          Text(AppLocalizations.of(context)!.ahadeth,
+              style: Theme.of(context).textTheme.bodyMedium),
           Divider(
             color: MyTheme.primary,
             thickness: 3,
@@ -38,8 +40,9 @@ class _HadethState extends State<Hadeth> {
             child: ListView.separated(
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: (){
-                      Navigator.pushNamed(context, HadethDitales.routName,arguments: ahadeth[index]);
+                    onTap: () {
+                      Navigator.pushNamed(context, HadethDitales.routName,
+                          arguments: ahadeth[index]);
                     },
                     child: Text(
                       ahadeth[index].title,
@@ -50,7 +53,7 @@ class _HadethState extends State<Hadeth> {
                 },
                 separatorBuilder: (context, index) {
                   return Divider(
-                    thickness: 3,
+                    color: MyTheme.primary,
                     endIndent: 40,
                     indent: 40,
                   );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:islame2/myThame.dart';
 import 'package:islame2/suraDitales.dart';
 import 'package:islame2/suraModel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Quran extends StatelessWidget {
   static const String routName = 'quran';
   List<String> suraNames = [
@@ -127,20 +129,23 @@ class Quran extends StatelessWidget {
       child: Column(
         children: [
           Image.asset('assets/images/quran_image.png'),
-          Divider(color: Colors.black),
+          Divider(
+            thickness: 3,
+            color: MyTheme.primary,
+          ),
           Text(
-          AppLocalizations.of(context)!.suraName
-          ,
+            AppLocalizations.of(context)!.suraName,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Divider(
-            color: Colors.black,
+            thickness: 3,
+            color: MyTheme.primary,
           ),
           Expanded(
             child: ListView.separated(
               itemCount: suraNames.length,
               separatorBuilder: (context, index) => Divider(
-                color: Colors.black,
+                color: MyTheme.primary,
                 endIndent: 40,
                 indent: 40,
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame2/suraDitales.dart';
 import 'package:islame2/suraModel.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Quran extends StatelessWidget {
   static const String routName = 'quran';
   List<String> suraNames = [
@@ -129,7 +129,8 @@ class Quran extends StatelessWidget {
           Image.asset('assets/images/quran_image.png'),
           Divider(color: Colors.black),
           Text(
-            "Sura Names",
+          AppLocalizations.of(context)!.suraName
+          ,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Divider(

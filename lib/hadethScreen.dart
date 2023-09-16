@@ -4,7 +4,7 @@ import 'package:islame2/myThame.dart';
 
 import 'hadethDitales.dart';
 import 'hadethModel.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Hadeth extends StatefulWidget {
   static const String routName = 'hadeth';
 
@@ -29,7 +29,7 @@ class _HadethState extends State<Hadeth> {
             color: MyTheme.primary,
             thickness: 3,
           ),
-          Text("Ahadeth", style: Theme.of(context).textTheme.bodyMedium),
+          Text(AppLocalizations.of(context)!.ahadeth, style: Theme.of(context).textTheme.bodyMedium),
           Divider(
             color: MyTheme.primary,
             thickness: 3,

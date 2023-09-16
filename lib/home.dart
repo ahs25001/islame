@@ -3,9 +3,8 @@ import 'package:islame2/quranScreen.dart';
 import 'package:islame2/radio.dart';
 import 'package:islame2/sebhaScreen.dart';
 import 'package:islame2/settinsScreen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'hadethScreen.dart';
-
 class Home extends StatefulWidget {
   static String routName = "Home";
 
@@ -28,7 +27,7 @@ List<Widget>bodies=[Quran(),Hadeth(),Sebha(),RadioFm(),Settings()];
         Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            title: Text("Islame"),
+            title: Text(AppLocalizations.of(context)!.appTitle),
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: index,
@@ -39,27 +38,27 @@ List<Widget>bodies=[Quran(),Hadeth(),Sebha(),RadioFm(),Settings()];
               items: [
                 BottomNavigationBarItem(
                   icon:ImageIcon(AssetImage('assets/images/quran_icon.png'), ),
-                  label: "Quran",
+                  label: AppLocalizations.of(context)!.quranIconName,
                   backgroundColor: Color(0XFFB7935F),
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/ahadeth_icon.png')),
-                  label: "Ahadeth",
+                  label: AppLocalizations.of(context)!.ahadethIconName,
                   backgroundColor: Color(0XFFB7935F),
                 ),
                 BottomNavigationBarItem(
                   icon:ImageIcon(AssetImage('assets/images/sebha_icon.png')),
-                  label: "Sebha",
+                  label: AppLocalizations.of(context)!.sebhaIconName,
                   backgroundColor: Color(0XFFB7935F),
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/radio_icon.png')),
-                  label: "Radio",
+                  label: AppLocalizations.of(context)!.radioIconName,
                   backgroundColor: Color(0XFFB7935F),
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.settings),
-                  label: "Settings",
+                  label: AppLocalizations.of(context)!.settingsIconName,
                   backgroundColor: Color(0XFFB7935F),
                 ),
               ]),

@@ -131,21 +131,24 @@ class Quran extends StatelessWidget {
           Image.asset('assets/images/quran_image.png'),
           Divider(
             thickness: 3,
-            color: MyTheme.primary,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           Text(
             AppLocalizations.of(context)!.suraName,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: Theme.of(context).colorScheme.onPrimary),
           ),
           Divider(
             thickness: 3,
-            color: MyTheme.primary,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           Expanded(
             child: ListView.separated(
               itemCount: suraNames.length,
               separatorBuilder: (context, index) => Divider(
-                color: MyTheme.primary,
+                color: Theme.of(context).colorScheme.secondary,
                 endIndent: 40,
                 indent: 40,
               ),
@@ -157,7 +160,10 @@ class Quran extends StatelessWidget {
                 },
                 child: Text(
                   suraNames[index],
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodySmall!
+                      .copyWith(color: Theme.of(context).colorScheme.onPrimary),
                   textAlign: TextAlign.center,
                 ),
               ),

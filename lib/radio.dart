@@ -21,7 +21,10 @@ class _RadioFmState extends State<RadioFm> {
             child: Image.asset('assets/images/radio_image.png')),
         Text(
           'اذاعة القران الكريم',
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: Theme.of(context).colorScheme.onPrimary),
         ),
         SizedBox(
           height: 65,
@@ -43,7 +46,7 @@ class _RadioFmState extends State<RadioFm> {
                   ? ImageIcon(
                       AssetImage("assets/images/Icon awesome-play.png"),
                     )
-                  : Icon(Icons.pause,size: 35),
+                  : Icon(Icons.pause, size: 35),
             ),
             IconButton(
                 onPressed: () {},

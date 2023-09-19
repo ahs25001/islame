@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame2/hadethModel.dart';
+import 'package:islame2/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class HadethDitales extends StatelessWidget {
   static const String routName="hadethDitales";
@@ -7,13 +9,16 @@ class HadethDitales extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     var args=ModalRoute.of(context)!.settings.arguments as HadethModel;
     return Card(
       child: Container(
         height: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/background.png",),
+                image: AssetImage( (provider.mode == "light")
+                    ? "assets/images/background.png"
+                    : "assets/images/bg.png",),
                 fit: BoxFit.fill)),
         child: Scaffold(
           appBar: AppBar(

@@ -3,8 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islame2/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 
-class LanguageBottomSheet extends StatelessWidget {
-  const LanguageBottomSheet({super.key});
+class ThemeBottomSheet extends StatelessWidget {
+  const ThemeBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class LanguageBottomSheet extends StatelessWidget {
         children: [
           InkWell(
             onTap: (){
-              provider.changeLocal("ar");
+              provider.changeMode("light");
               Navigator.pop(context);
             }
             ,
@@ -23,34 +23,34 @@ class LanguageBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.arabic,
-                  style: (provider.local == "ar")
+                  AppLocalizations.of(context)!.light,
+                  style: (provider.mode == "light")
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.secondary)
                       : Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.onPrimary),
                 ),
-                (provider.local == "ar") ? Icon(Icons.done) : SizedBox(),
+                (provider.mode == "light") ? Icon(Icons.done) : SizedBox(),
               ],
             ),
           ),
           InkWell(
             onTap: (){
-              provider.changeLocal("en");
+              provider.changeMode("dark");
               Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.english,
-                  style: (provider.local == "en")
+                  AppLocalizations.of(context)!.dark,
+                  style: (provider.mode == "dark")
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.secondary)
                       : Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.onPrimary),
                 ),
-                (provider.local == "en") ? Icon(Icons.done) : SizedBox(),
+                (provider.mode == "dark") ? Icon(Icons.done) : SizedBox(),
               ],
             ),
           )

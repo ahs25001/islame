@@ -4,8 +4,12 @@
   "quranIconName": "Quran",
   "ahadethIconName": "Ahadeth",
   "radioIconName": "Radio",
-  "settingsIconName": "Sttings",
+  "settingsIconName": "Settings",
   "suraName": "Sura Name",
-  "ahadeth": "Ahadeth"
+  "language": "Language",
+  "ahadeth": "Ahadeth",
+  "arabic": "Arabic",
+  "english": "English",
+  "mode": "Mode"
 
 }

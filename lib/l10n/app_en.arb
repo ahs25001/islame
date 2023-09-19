@@ -6,6 +6,12 @@
   "radioIconName": "Radio",
   "settingsIconName": "Sttings",
   "suraName": "Sura Name",
-  "ahadeth": "Ahadeth"
+  "ahadeth": "Ahadeth",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "mode": "Mode",
+  "dark": "Dark",
+  "light": "Light"
 
 }

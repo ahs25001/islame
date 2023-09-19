@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islame2/hadethDitales.dart';
 import 'package:islame2/myThame.dart';
+import 'package:islame2/providers/my_provider.dart';
 import 'package:islame2/suraDitales.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (BuildContext context) {
+        return MyProvider();
+      },
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,17 +21,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
+
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(provider.local),
       debugShowCheckedModeBanner: false,
       routes: {
         Home.routName: (context) => Home(),
-       SouraDitalse.routName:(context) => SouraDitalse(),
-        HadethDitales.routName:(context) => HadethDitales(),
+        SouraDitalse.routName: (context) => SouraDitalse(),
+        HadethDitales.routName: (context) => HadethDitales(),
       },
+      themeMode: (provider.mode=="light")?ThemeMode.light:ThemeMode.dark,
       initialRoute: Home.routName,
       theme: MyTheme.light,
+      darkTheme: MyTheme.dark,
     );
   }
 }

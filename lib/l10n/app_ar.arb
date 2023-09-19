@@ -6,6 +6,12 @@
   "radioIconName": "الراديو",
   "settingsIconName": "الاعدادات",
   "suraName": "اسم السورة",
-  "ahadeth": "الاحاديث"
+  "ahadeth": "الاحاديث",
+  "language": "اللغة",
+  "english": "الانجليزية",
+  "arabic": "العربية",
+  "mode": "السمة",
+  "dark": "ليلي",
+  "light": "نهاري"
 
 }

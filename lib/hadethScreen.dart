@@ -27,13 +27,26 @@ class _HadethState extends State<Hadeth> {
         children: [
           Image.asset('assets/images/ahadeth_image.png'),
           Divider(
-            color: MyTheme.primary,
+            color: Theme
+                .of(context)
+                .colorScheme
+                .secondary,
             thickness: 3,
           ),
           Text(AppLocalizations.of(context)!.ahadeth,
-              style: Theme.of(context).textTheme.bodyMedium),
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Theme
+                  .of(context)
+                  .colorScheme
+                  .onPrimary)),
           Divider(
-            color: MyTheme.primary,
+            color: Theme
+                .of(context)
+                .colorScheme
+                .secondary,
             thickness: 3,
           ),
           Expanded(
@@ -45,15 +58,26 @@ class _HadethState extends State<Hadeth> {
                           arguments: ahadeth[index]);
                     },
                     child: Text(
-                      ahadeth[index].title,
-                      style: Theme.of(context).textTheme.bodySmall,
-                      textAlign: TextAlign.center,
-                    ),
+                        ahadeth[index].title,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: Theme
+                            .of(context)
+                            .colorScheme
+                            .onPrimary),
+                    textAlign: TextAlign.center,
+                  )
+                  ,
                   );
                 },
                 separatorBuilder: (context, index) {
                   return Divider(
-                    color: MyTheme.primary,
+                    color: Theme
+                        .of(context)
+                        .colorScheme
+                        .secondary,
                     endIndent: 40,
                     indent: 40,
                   );

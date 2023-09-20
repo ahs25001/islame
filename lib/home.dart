@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:islame2/providers/my_provider.dart';
-import 'package:islame2/quranScreen.dart';
-import 'package:islame2/radio.dart';
-import 'package:islame2/sebhaScreen.dart';
-import 'package:islame2/settinsScreen.dart';
+import 'package:islame2/tabs/quranScreen.dart';
+import 'package:islame2/tabs/radio.dart';
+import 'package:islame2/tabs/sebhaScreen.dart';
+import 'package:islame2/tabs/settinsScreen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'hadethScreen.dart';
+import 'tabs/hadethScreen.dart';
 class Home extends StatefulWidget {
   static String routName = "Home";
 

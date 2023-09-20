@@ -4,7 +4,7 @@ import 'package:islame2/bottom_sheet/language_bottom_sheet.dart';
 import 'package:islame2/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'bottom_sheet/theme_bottom_sheet.dart';
+import '../bottom_sheet/theme_bottom_sheet.dart';
 
 class Settings extends StatefulWidget {
   static const String routName = 'settings';

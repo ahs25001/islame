@@ -1,0 +1,17 @@
+{
+  "appTitle": "Islame",
+  "sebhaIconName": "Sebha",
+  "quranIconName": "Quran",
+  "ahadethIconName": "Ahadeth",
+  "radioIconName": "Radio",
+  "settingsIconName": "Sttings",
+  "suraName": "Sura Name",
+  "ahadeth": "Ahadeth",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "mode": "Mode",
+  "dark": "Dark",
+  "light": "Light"
+
+}

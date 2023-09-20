@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:islame2/providers/my_provider.dart';
 import 'package:islame2/quranScreen.dart';
 import 'package:islame2/radio.dart';
 import 'package:islame2/sebhaScreen.dart';
 import 'package:islame2/settinsScreen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'hadethScreen.dart';
-
 class Home extends StatefulWidget {
   static String routName = "Home";
 
@@ -18,17 +19,19 @@ class _HomeState extends State<Home> {
 List<Widget>bodies=[Quran(),Hadeth(),Sebha(),RadioFm(),Settings()];
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/background.png',
+          (provider.mode=="light")?
+          'assets/images/background.png':'assets/images/bg.png',
           width: double.infinity,
           fit: BoxFit.fill,
         ),
         Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            title: Text("Islame"),
+            title: Text(AppLocalizations.of(context)!.appTitle),
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: index,
@@ -39,28 +42,28 @@ List<Widget>bodies=[Quran(),Hadeth(),Sebha(),RadioFm(),Settings()];
               items: [
                 BottomNavigationBarItem(
                   icon:ImageIcon(AssetImage('assets/images/quran_icon.png'), ),
-                  label: "Quran",
-                  backgroundColor: Color(0XFFB7935F),
+                  label: AppLocalizations.of(context)!.quranIconName,
+                  backgroundColor:Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/ahadeth_icon.png')),
-                  label: "Ahadeth",
-                  backgroundColor: Color(0XFFB7935F),
+                  label: AppLocalizations.of(context)!.ahadethIconName,
+                  backgroundColor:Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
                   icon:ImageIcon(AssetImage('assets/images/sebha_icon.png')),
-                  label: "Sebha",
-                  backgroundColor: Color(0XFFB7935F),
+                  label: AppLocalizations.of(context)!.sebhaIconName,
+                  backgroundColor:Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/radio_icon.png')),
-                  label: "Radio",
-                  backgroundColor: Color(0XFFB7935F),
+                  label: AppLocalizations.of(context)!.radioIconName,
+                  backgroundColor:Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.settings),
-                  label: "Settings",
-                  backgroundColor: Color(0XFFB7935F),
+                  label: AppLocalizations.of(context)!.settingsIconName,
+                  backgroundColor:Theme.of(context).colorScheme.primary,
                 ),
               ]),
           body: bodies[index],

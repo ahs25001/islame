@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islame2/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class Sebha extends StatefulWidget {
   static const routName = 'sebha';
@@ -22,6 +24,7 @@ class _SebhaState extends State<Sebha> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: 50, start: 90, end: 90),
       child: Column(
@@ -39,30 +42,35 @@ class _SebhaState extends State<Sebha> {
                 }
                 setState(() {});
               },
-              child: Image.asset("assets/images/sebha.png")),
+              child: Image.asset((provider.mode == "light")
+                  ? "assets/images/sebha.png"
+                  : "assets/images/sebha_dark.png")),
           SizedBox(
             height: 32,
           ),
           Text(
             "عدد التسبيحات",
-            style: Theme.of(context).textTheme.bodySmall,
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall!
+                .copyWith(color: Theme.of(context).colorScheme.onPrimary),
           ),
           SizedBox(
             height: 34,
           ),
           Container(
             decoration: BoxDecoration(
-                color: Color(0XFFC9B396),
+                color: Theme.of(context).colorScheme.onSurface,
                 borderRadius: BorderRadius.circular(23)),
             width: 69,
             height: 81,
             child: Center(
               child: Text(
                 "$counter",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: Theme.of(context).colorScheme.onPrimary),
               ),
             ),
           ),
@@ -71,13 +79,16 @@ class _SebhaState extends State<Sebha> {
           ),
           Container(
               decoration: BoxDecoration(
-                  color: Color(0XFFB7935F),
+                  color:Theme.of(context).colorScheme.secondary,
                   borderRadius: BorderRadius.circular(23)),
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: Text(
                 textAlign: TextAlign.center,
                 azkar[index],
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Theme.of(context).colorScheme.onPrimary),
               )),
         ],
       ),

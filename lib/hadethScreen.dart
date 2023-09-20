@@ -4,6 +4,7 @@ import 'package:islame2/myThame.dart';
 
 import 'hadethDitales.dart';
 import 'hadethModel.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Hadeth extends StatefulWidget {
   static const String routName = 'hadeth';
@@ -26,31 +27,57 @@ class _HadethState extends State<Hadeth> {
         children: [
           Image.asset('assets/images/ahadeth_image.png'),
           Divider(
-            color: MyTheme.primary,
+            color: Theme
+                .of(context)
+                .colorScheme
+                .secondary,
             thickness: 3,
           ),
-          Text("Ahadeth", style: Theme.of(context).textTheme.bodyMedium),
+          Text(AppLocalizations.of(context)!.ahadeth,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Theme
+                  .of(context)
+                  .colorScheme
+                  .onPrimary)),
           Divider(
-            color: MyTheme.primary,
+            color: Theme
+                .of(context)
+                .colorScheme
+                .secondary,
             thickness: 3,
           ),
           Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: (){
-                      Navigator.pushNamed(context, HadethDitales.routName,arguments: ahadeth[index]);
+                    onTap: () {
+                      Navigator.pushNamed(context, HadethDitales.routName,
+                          arguments: ahadeth[index]);
                     },
                     child: Text(
-                      ahadeth[index].title,
-                      style: Theme.of(context).textTheme.bodySmall,
-                      textAlign: TextAlign.center,
-                    ),
+                        ahadeth[index].title,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: Theme
+                            .of(context)
+                            .colorScheme
+                            .onPrimary),
+                    textAlign: TextAlign.center,
+                  )
+                  ,
                   );
                 },
                 separatorBuilder: (context, index) {
                   return Divider(
-                    thickness: 3,
+                    color: Theme
+                        .of(context)
+                        .colorScheme
+                        .secondary,
                     endIndent: 40,
                     indent: 40,
                   );

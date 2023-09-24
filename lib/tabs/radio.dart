@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioFm extends StatefulWidget {
   static const String routName = 'radio';
@@ -20,7 +21,7 @@ class _RadioFmState extends State<RadioFm> {
             height: 222,
             child: Image.asset('assets/images/radio_image.png')),
         Text(
-          'اذاعة القران الكريم',
+          AppLocalizations.of(context)!.quranRadio,
           style: Theme.of(context)
               .textTheme
               .bodyMedium!

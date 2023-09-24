@@ -6,7 +6,7 @@ class SuraProvider extends ChangeNotifier{
 
   lodFile(int index) async {
     String sura = await rootBundle.loadString("assets/files/${index + 1}.txt");
-    List<String> aya = sura.split("\n");
+    List<String> aya = sura.trim().split("\n");
     view = aya;
    notifyListeners();
   }

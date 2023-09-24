@@ -12,6 +12,9 @@
   "arabic": "Arabic",
   "mode": "Mode",
   "dark": "Dark",
-  "light": "Light"
+  "light": "Light",
+  "numberOfTasbehat": "Number Of Tasbehat",
+  "quranRadio": "Quran Radio",
+  "numberOfAyat": "Number Of Ayat"
 
 }

@@ -12,6 +12,9 @@
   "arabic": "العربية",
   "mode": "السمة",
   "dark": "ليلي",
-  "light": "نهاري"
+  "light": "نهاري",
+  "numberOfTasbehat": "عدد التسبيحات",
+  "quranRadio": "اذاعة القران الكريم",
+  "numberOfAyat": "عدد الايات"
 
 }

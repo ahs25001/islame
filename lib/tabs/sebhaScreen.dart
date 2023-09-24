@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame2/providers/my_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Sebha extends StatefulWidget {
   static const routName = 'sebha';
@@ -49,7 +50,7 @@ class _SebhaState extends State<Sebha> {
             height: 32,
           ),
           Text(
-            "عدد التسبيحات",
+           AppLocalizations.of(context)!.numberOfTasbehat,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!

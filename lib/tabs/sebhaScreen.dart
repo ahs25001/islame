@@ -43,7 +43,7 @@ class _SebhaState extends State<Sebha> {
                 }
                 setState(() {});
               },
-              child: Image.asset((provider.mode == "light")
+              child: Image.asset((provider.mode == ThemeMode.light)
                   ? "assets/images/sebha.png"
                   : "assets/images/sebha_dark.png")),
           SizedBox(

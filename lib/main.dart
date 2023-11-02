@@ -8,10 +8,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'home.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  var provider=MyProvider();
+  await provider.loadTheme();
+  await provider.loadLocal();
   runApp(ChangeNotifierProvider(
       create: (BuildContext context) {
-        return MyProvider();
+        return  provider;
       },
       child: MyApp()));
 }
@@ -33,7 +37,7 @@ class MyApp extends StatelessWidget {
         SouraDitalse.routName: (context) => SouraDitalse(),
         HadethDitales.routName: (context) => HadethDitales(),
       },
-      themeMode: (provider.mode=="light")?ThemeMode.light:ThemeMode.dark,
+      themeMode: provider.mode,
       initialRoute: Home.routName,
       theme: MyTheme.light,
       darkTheme: MyTheme.dark,

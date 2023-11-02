@@ -49,7 +49,7 @@ class _SettingsState extends State<Settings> {
                     borderRadius: BorderRadius.circular(18),
                     border: Border.all(
                         color: Theme.of(context).colorScheme.secondary)),
-                child: (provider.mode == "light")
+                child: (provider.mode == ThemeMode.light)
                     ? Text(AppLocalizations.of(context)!.light)
                     : Text(AppLocalizations.of(context)!.dark)),
           ),

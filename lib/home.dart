@@ -23,7 +23,7 @@ List<Widget>bodies=[Quran(),Hadeth(),Sebha(),RadioFm(),Settings()];
     return Stack(
       children: [
         Image.asset(
-          (provider.mode=="light")?
+          (provider.mode==ThemeMode.light)?
           'assets/images/background.png':'assets/images/bg.png',
           width: double.infinity,
           fit: BoxFit.fill,

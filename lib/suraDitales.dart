@@ -27,7 +27,7 @@ class _SouraDitalseState extends State<SouraDitalse> {
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(
-                      (provider.mode == "light")
+                      (provider.mode == ThemeMode.light)
                           ? "assets/images/background.png"
                           : "assets/images/bg.png",
                     ),

@@ -24,13 +24,13 @@ class ThemeBottomSheet extends StatelessWidget {
               children: [
                 Text(
                   AppLocalizations.of(context)!.light,
-                  style: (provider.mode == "light")
+                  style: (provider.mode == ThemeMode.light)
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.secondary)
                       : Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.onPrimary),
                 ),
-                (provider.mode == "light") ? Icon(Icons.done) : SizedBox(),
+                (provider.mode == ThemeMode.light) ? const Icon(Icons.done) : const SizedBox(),
               ],
             ),
           ),
@@ -44,13 +44,13 @@ class ThemeBottomSheet extends StatelessWidget {
               children: [
                 Text(
                   AppLocalizations.of(context)!.dark,
-                  style: (provider.mode == "dark")
+                  style: (provider.mode == ThemeMode.dark)
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.secondary)
                       : Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.onPrimary),
                 ),
-                (provider.mode == "dark") ? Icon(Icons.done) : SizedBox(),
+                (provider.mode == ThemeMode.dark) ? const Icon(Icons.done) : const SizedBox(),
               ],
             ),
           )

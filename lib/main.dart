@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islame2/hadethDitales.dart';
 import 'package:islame2/myThame.dart';
@@ -10,6 +11,7 @@ import 'home.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   var provider=MyProvider();
   await provider.loadTheme();
   await provider.loadLocal();

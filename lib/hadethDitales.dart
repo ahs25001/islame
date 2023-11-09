@@ -16,7 +16,7 @@ class HadethDitales extends StatelessWidget {
         height: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage( (provider.mode == "light")
+                image: AssetImage( (provider.mode == ThemeMode.light)
                     ? "assets/images/background.png"
                     : "assets/images/bg.png",),
                 fit: BoxFit.fill)),
@@ -30,7 +30,7 @@ class HadethDitales extends StatelessWidget {
           body: Card(
             shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
             elevation: 3,
-            margin: EdgeInsets.all(7),
+            margin: const EdgeInsets.all(7),
             child: ListView.builder(
                 itemBuilder: (context, index) {
                   return Center(child: Text(args.body[index],));

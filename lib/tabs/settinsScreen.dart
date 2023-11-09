@@ -61,16 +61,16 @@ class _SettingsState extends State<Settings> {
   openLanguageSheet() {
     showModalBottomSheet(
         context: context,
-        builder: (context) => LanguageBottomSheet(),
-        shape: OutlineInputBorder(
+        builder: (context) => const LanguageBottomSheet(),
+        shape: const OutlineInputBorder(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(18), topLeft: Radius.circular(18))));
   }
   openThemeSheet(){
     showModalBottomSheet(
         context: context,
-        builder: (context) => ThemeBottomSheet(),
-        shape: OutlineInputBorder(
+        builder: (context) => const ThemeBottomSheet(),
+        shape: const OutlineInputBorder(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(18), topLeft: Radius.circular(18))));
   }

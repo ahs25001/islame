@@ -1,11 +1,55 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../ResponseApi.dart';
+
 class MyProvider extends ChangeNotifier {
+
   String local = "en";
   ThemeMode mode = ThemeMode.system;
   SharedPreferences? sharedPreferences;
+  bool isRadioPlay = false;
+  int indexOfRadio = 0;
+  final player = AudioPlayer();
+  List<RadioData> radios = [];
+  void playNext() {
+    if (indexOfRadio == radios.length-1) {
+      indexOfRadio = 0;
+    } else {
+      indexOfRadio++;
+    }
+    if (isRadioPlay) {
+      player.play(UrlSource(radios[indexOfRadio].url!));
+    }
+    notifyListeners();
+  }
 
+  void playPrevious() {
+    if (indexOfRadio == 0) {
+      indexOfRadio = radios.length - 1;
+    } else {
+      indexOfRadio--;
+    }
+    if (isRadioPlay) {
+      player.play(UrlSource(radios[indexOfRadio].url!));
+    }
+    notifyListeners();
+  }
+
+  void playRadio() {
+    if (!isRadioPlay) {
+      player.play(UrlSource(radios[indexOfRadio].url!));
+      isRadioPlay = true;
+      notifyListeners();
+    }
+  }
+
+  void pauseRadio() {
+    player.pause();
+    isRadioPlay = false;
+    notifyListeners();
+  }
   changeLocal(String code) {
     local = code;
     notifyListeners();

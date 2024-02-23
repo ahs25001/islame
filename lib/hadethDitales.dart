@@ -3,14 +3,17 @@ import 'package:islame2/hadethModel.dart';
 import 'package:islame2/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'myThame.dart';
+
 class HadethDitales extends StatelessWidget {
-  static const String routName="hadethDitales";
+  static const String routName = "hadethDitales";
+
   const HadethDitales({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context);
-    var args=ModalRoute.of(context)!.settings.arguments as HadethModel;
+    var provider = Provider.of<MyProvider>(context);
+    var args = ModalRoute.of(context)!.settings.arguments as HadethModel;
     return Card(
       child: Container(
         height: double.infinity,
@@ -28,12 +31,19 @@ class HadethDitales extends StatelessWidget {
             ),
           ),
           body: Card(
-            shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
+            color: (provider.mode == ThemeMode.light)
+                ? Colors.white
+                : MyTheme.blackColor,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
             elevation: 3,
             margin: const EdgeInsets.all(7),
             child: ListView.builder(
                 itemBuilder: (context, index) {
-                  return Center(child: Text(args.body[index],));
+                  return Center(
+                      child: Text(
+                    args.body[index],
+                  ));
                 },
                 itemCount: args.body.length),
           ),

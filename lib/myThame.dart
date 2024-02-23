@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 class MyTheme {
-  static Color blackColor = Color(0XFF242424);
-  static Color primary = Color(0XFFB7935F);
-  static Color primaryDark = Color(0XFF141A2E);
-  static Color yellow = Color(0XFFFACC1D);
+  static Color blackColor = const Color(0XFF242424);
+  static Color primary = const Color(0XFFB7935F);
+  static Color primaryDark = const Color(0XFF141A2E);
+  static Color yellow = const Color(0XFFFACC1D);
   static ThemeData light = ThemeData(
       colorScheme: ColorScheme(
           brightness: Brightness.light,
@@ -18,8 +17,8 @@ class MyTheme {
           background: primary,
           onBackground: Colors.white,
           surface: blackColor,
-          onSurface: Color(0XFFC9B396)),
-      iconTheme: IconThemeData(color: Color(0XFFB7935F)),
+          onSurface: const Color(0XFFC9B396)),
+      iconTheme: const IconThemeData(color: Color(0XFFB7935F)),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         unselectedItemColor: Colors.white,
         selectedItemColor: blackColor,
@@ -56,7 +55,7 @@ class MyTheme {
           error: Colors.red,
           onError: Colors.white,
           background: primary,
-          onBackground: Colors.white,
+          onBackground: blackColor,
           surface: Colors.white,
           onSurface: primaryDark),
       iconTheme: IconThemeData(color: yellow),
@@ -67,7 +66,7 @@ class MyTheme {
       ),
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: AppBarTheme(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
         titleTextStyle: GoogleFonts.elMessiri(
             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),

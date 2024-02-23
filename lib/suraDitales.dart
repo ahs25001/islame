@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islame2/myThame.dart';
 import 'package:islame2/providers/my_provider.dart';
 import 'package:islame2/providers/sura_provider.dart';
 import 'package:islame2/suraModel.dart';
@@ -39,6 +40,7 @@ class _SouraDitalseState extends State<SouraDitalse> {
                 ),
               ),
               body: Card(
+                color: (provider.mode==ThemeMode.light)?Colors.white:MyTheme.blackColor,
                 shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
                 elevation: 3,

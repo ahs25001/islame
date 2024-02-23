@@ -7,7 +7,7 @@ import '../ResponseApi.dart';
 class MyProvider extends ChangeNotifier {
 
   String local = "en";
-  ThemeMode mode = ThemeMode.system;
+  ThemeMode mode = ThemeMode.light;
   SharedPreferences? sharedPreferences;
   bool isRadioPlay = false;
   int indexOfRadio = 0;
@@ -80,7 +80,7 @@ class MyProvider extends ChangeNotifier {
     sharedPreferences = await SharedPreferences.getInstance();
     String? newTheme = sharedPreferences!.getString("theme");
     if (newTheme == null) {
-      mode = ThemeMode.system;
+      mode = ThemeMode.light;
     } else if (newTheme == "light") {
       mode = ThemeMode.light;
     } else {

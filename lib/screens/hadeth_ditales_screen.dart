@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:islame2/hadethModel.dart';
+import 'package:islame2/models/hadethModel.dart';
 import 'package:islame2/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'myThame.dart';
+import '../sheard/style/themes/myThame.dart';
 
-class HadethDitales extends StatelessWidget {
+class HadethDitalesScreen extends StatelessWidget {
   static const String routName = "hadethDitales";
 
-  const HadethDitales({super.key});
+  const HadethDitalesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

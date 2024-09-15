@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islame2/api_manager.dart';
-import 'package:islame2/providers/RadioProvider.dart';
+import 'package:islame2/providers/home_provider.dart';
+import 'package:islame2/sheard/network/remot/api_manager.dart';
 import 'package:islame2/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../ResponseApi.dart';
 
 class RadioFm extends StatefulWidget {
   static const String routName = 'radio';
@@ -17,7 +16,8 @@ class RadioFm extends StatefulWidget {
 class _RadioFmState extends State<RadioFm> {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProvider>(context);
+    var provider = Provider.of<HomeProvider>(context);
+    var appProvider = Provider.of<MyProvider>(context);
     return   Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -33,7 +33,7 @@ class _RadioFmState extends State<RadioFm> {
                     .copyWith(color: Theme.of(context).colorScheme.onPrimary),
               ),
               FutureBuilder(
-                future: ApiManager.getData(provider.local),
+                future: ApiManager.getData(appProvider.local),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
                     return const Text("Error");

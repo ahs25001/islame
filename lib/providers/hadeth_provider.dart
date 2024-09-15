@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-import '../hadethModel.dart';
+import '../models/hadethModel.dart';
 
 class HadethProvider extends ChangeNotifier{
   List<HadethModel> ahadeth = [];

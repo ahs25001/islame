@@ -1,30 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:islame2/providers/home_provider.dart';
 import 'package:islame2/providers/my_provider.dart';
-import 'package:islame2/tabs/quranScreen.dart';
-import 'package:islame2/tabs/radio.dart';
-import 'package:islame2/tabs/sebhaScreen.dart';
-import 'package:islame2/tabs/settinsScreen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islame2/screens/tabs/hadeth_tab.dart';
+import 'package:islame2/screens/tabs/quran_tab.dart';
+import 'package:islame2/screens/tabs/radio_tab.dart';
+import 'package:islame2/screens/tabs/sebha_tab.dart';
+import 'package:islame2/screens/tabs/settings_tab.dart';
 import 'package:provider/provider.dart';
-import 'tabs/hadethScreen.dart';
-class Home extends StatefulWidget {
+
+class HomeScreen extends StatelessWidget {
   static String routName = "Home";
 
-  @override
-  State<Home> createState() => _HomeState();
-}
+  List<Widget> bodies = [
+    Quran(),
+    Hadeth(),
+    Sebha(),
+    RadioFm(),
+    const Settings()
+  ];
 
-class _HomeState extends State<Home> {
-  int index = 0;
-List<Widget>bodies=[Quran(),Hadeth(),Sebha(),RadioFm(),Settings()];
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context);
+    var provider = Provider.of<HomeProvider>(context);
+    var appProvider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          (provider.mode==ThemeMode.light)?
-          'assets/images/background.png':'assets/images/bg.png',
+          (appProvider.mode == ThemeMode.light)
+              ? 'assets/images/background.png'
+              : 'assets/images/bg.png',
           width: double.infinity,
           fit: BoxFit.fill,
         ),
@@ -34,42 +39,42 @@ List<Widget>bodies=[Quran(),Hadeth(),Sebha(),RadioFm(),Settings()];
             title: Text(AppLocalizations.of(context)!.appTitle),
           ),
           bottomNavigationBar: BottomNavigationBar(
-            currentIndex: index,
+              currentIndex: provider.currentIndex,
               onTap: (value) {
-                index=value;
-                setState(() {});
+                provider.changeIndex(value);
               },
               items: [
                 BottomNavigationBarItem(
-                  icon:ImageIcon(AssetImage('assets/images/quran_icon.png'), ),
+                  icon: ImageIcon(
+                    AssetImage('assets/images/quran_icon.png'),
+                  ),
                   label: AppLocalizations.of(context)!.quranIconName,
-                  backgroundColor:Theme.of(context).colorScheme.primary,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/ahadeth_icon.png')),
                   label: AppLocalizations.of(context)!.ahadethIconName,
-                  backgroundColor:Theme.of(context).colorScheme.primary,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
-                  icon:ImageIcon(AssetImage('assets/images/sebha_icon.png')),
+                  icon: ImageIcon(AssetImage('assets/images/sebha_icon.png')),
                   label: AppLocalizations.of(context)!.sebhaIconName,
-                  backgroundColor:Theme.of(context).colorScheme.primary,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/radio_icon.png')),
                   label: AppLocalizations.of(context)!.radioIconName,
-                  backgroundColor:Theme.of(context).colorScheme.primary,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.settings),
                   label: AppLocalizations.of(context)!.settingsIconName,
-                  backgroundColor:Theme.of(context).colorScheme.primary,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
               ]),
-          body: bodies[index],
+          body: bodies[provider.currentIndex],
         ),
       ],
     );
   }
 }
-

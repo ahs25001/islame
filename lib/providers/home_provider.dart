@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../models/ResponseApi.dart';
+import '../models/hadethModel.dart';
 
 class HomeProvider extends ChangeNotifier {
   int currentIndex = 0;
@@ -16,13 +17,27 @@ class HomeProvider extends ChangeNotifier {
   List<RadioData> radios = [];
   /// Quran tab
   List<String> view = [];
-
   void lodFile(int index) async {
     String sura = await rootBundle.loadString("assets/files/${index + 1}.txt");
     List<String> aya = sura.trim().split("\n");
     view = aya;
     notifyListeners();
   }
+  /// Hadeth tab
+  List<HadethModel> ahadeth = [];
+
+  lodeAhadeth() async {
+    String hadethFile = await rootBundle.loadString("assets/files/ahadeth.txt");
+    List<String> hadeth = hadethFile.split("#");
+    for (int i = 0; i < hadeth.length; i++) {
+      List<String> hadethLiens = hadeth[i].trim().split("\n");
+      String title = hadethLiens[0];
+      hadethLiens.removeAt(0);
+      ahadeth.add(HadethModel(title: title, body: hadethLiens));
+      notifyListeners();
+    }
+  }
+  ///Radio tab
   void playNext() {
     if (indexOfRadio == radios.length-1) {
       indexOfRadio = 0;

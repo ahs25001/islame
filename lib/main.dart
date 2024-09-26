@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islame2/providers/home_provider.dart';
-import 'package:islame2/providers/sura_provider.dart';
 import 'package:islame2/screens/hadeth_ditales_screen.dart';
 import 'package:islame2/sheard/style/themes/myThame.dart';
 import 'package:islame2/providers/my_provider.dart';
@@ -13,25 +10,25 @@ import 'screens/home_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   var provider=MyProvider();
   await provider.loadTheme();
   await provider.loadLocal();
   runApp(MultiProvider(
     providers: [
-     ChangeNotifierProvider(create: (context) => MyProvider(),),
+     ChangeNotifierProvider.value(value: provider,),
      ChangeNotifierProvider(create: (context) => HomeProvider(),),
     ],
       child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     var provider=Provider.of<MyProvider>(context);
-
+    print("local = ${provider.local}+++++++++++++++++++++++++++++");
+    print("theme = ${provider.mode}+++++++++++++++++++++++++++++");
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

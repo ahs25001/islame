@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islame2/providers/home_provider.dart';
-import 'package:islame2/sheard/style/themes/myThame.dart';
 import 'package:islame2/screens/sura_ditales_screen.dart';
 import 'package:islame2/models/suraModel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-
-import '../../providers/sura_provider.dart';
-
 
 class Quran extends StatelessWidget {
   static const String routName = 'quran';
@@ -182,8 +178,9 @@ class Quran extends StatelessWidget {
                               Navigator.pushNamed(
                                   context, SouraDitalse.routName,
                                   arguments: SuraModel(
-                                    ayat: provider.view,
-                                      name: suraNames[index], index: index));
+                                      ayat: provider.view,
+                                      name: suraNames[index],
+                                      index: index));
                             },
                             child: Text(
                               suraNames[index],

@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:islame2/sheard/style/themes/myThame.dart';
-import 'package:islame2/providers/hadeth_provider.dart';
+import 'package:islame2/providers/home_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../hadeth_ditales_screen.dart';
 
-class Hadeth extends StatefulWidget {
+class Hadeth extends StatelessWidget {
   static const String routName = 'hadeth';
 
   @override
-  State<Hadeth> createState() => _HadethState();
-}
-
-class _HadethState extends State<Hadeth> {
-  @override
   Widget build(BuildContext context) {
-    // if (ahadeth.isEmpty) {
-    //   lodeAhadeth();
-    // }
     return Padding(
       padding: const EdgeInsets.only(top: 33.0),
       child: ChangeNotifierProvider(
-        create: (context) => HadethProvider()..lodeAhadeth(),
+        create: (context) => HomeProvider()..lodeAhadeth(),
         builder: (context, child) {
-          var hadethProvider = Provider.of<HadethProvider>(context);
+          var hadethProvider = Provider.of<HomeProvider>(context);
           return Column(
             children: [
               Image.asset('assets/images/ahadeth_image.png'),
